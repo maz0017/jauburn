@@ -9,6 +9,16 @@ Class {
 }
 
 { #category : #accessing }
+JbArity1OperatorNode >> evaluateIn: environment [
+	| evaldOperand |
+	evaldOperand := self operand evaluateIn: environment.
+	self operator = $-
+		ifTrue: [ 
+			^evaldOperand negated
+		]
+]
+
+{ #category : #accessing }
 JbArity1OperatorNode >> operand [
 	^ operand
 ]

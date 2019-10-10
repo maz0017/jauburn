@@ -7,6 +7,21 @@ Class {
 	#category : #'Jauburn-Interpreter-SamplePrograms'
 }
 
+{ #category : #'as yet unclassified' }
+JbSamplePrograms class >> newtonsSquareRoot [
+
+	Transcript show: 4.
+
+"	self interpret: 'newtonsSquareRoot(4);'."
+"	self assert: (interpreter environment at: 'z') equals: false."
+]
+
+{ #category : #'as yet unclassified' }
+JbSamplePrograms class >> newtonsSquareRoot: aNumber [
+
+	Transcript show: aNumber.
+]
+
 { #category : #'sample programs' }
 JbSamplePrograms class >> noFunctions [
 	"self run: #noFunctions"

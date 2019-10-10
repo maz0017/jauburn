@@ -19,6 +19,15 @@ JbFunctionCallNode >> arguments: anObject [
 ]
 
 { #category : #accessing }
+JbFunctionCallNode >> evaluateIn: environment [
+| evaldArgs |
+
+evaldArgs := arguments collect: [ :arg | arg evaluateIn: environment ].
+
+^(environment at: identifier) call: evaldArgs in: environment.
+]
+
+{ #category : #accessing }
 JbFunctionCallNode >> identifier [
 	^ identifier
 ]
