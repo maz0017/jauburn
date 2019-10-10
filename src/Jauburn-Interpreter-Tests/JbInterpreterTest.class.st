@@ -214,7 +214,7 @@ self interpret: progStr.
 - Submission Comments: -
 ------------------------
 My program variable 'guess' equals 10, but the 'Transcript show:'
-below outputs that its set to (144220706783810583841/14422070678381058384).
+below outputs that it's set to (144220706783810583841/14422070678381058384).
 The between:and: evaluates that as expected, but equals does not, that's why
 I used beween:and: in my assertion.
 "
