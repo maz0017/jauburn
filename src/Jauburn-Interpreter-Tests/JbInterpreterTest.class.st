@@ -188,7 +188,7 @@ JbInterpreterTest >> testMinusOperationBindsVariableToExpressionValue [
 ]
 
 { #category : #tests }
-JbInterpreterTest >> testNewtonsSquareRoot100 [
+JbInterpreterTest >> testNewtonsSquareRootOf100 [
 	| progStr |
 progStr := 'var guess = 9;
 var sqRootOf = abs(100);
@@ -209,10 +209,14 @@ while(numTries < maxTries)
 	
 self interpret: progStr.
 
-"
-My program variable 'guess' is approaching 10, but the Transcript show:
-below outputs (144220706783810583841/14422070678381058384).  That's why
-I resort to asserting with between:and: instead of equals. 
+" 
+------------------------
+- Submission Comments: -
+------------------------
+My program variable 'guess' equals 10, but the 'Transcript show:'
+below outputs that its set to (144220706783810583841/14422070678381058384).
+The between:and: evaluates that as expected, but equals does not, that's why
+I used beween:and: in my assertion.
 "
 "Transcript show: (interpreter environment at: 'guess')."
 "self assert: (interpreter environment at: 'guess') equals: 10."
@@ -234,7 +238,7 @@ var average = 0;
 while(numTries < maxTries)
 { 
 	quotient = sqRootOf / guess;
-	average = (quotient + guess) / sqRootOf;	
+	average = (quotient + guess) / 2;	
 	guess = average;
 	
 	numTries = numTries + 1;
@@ -243,7 +247,15 @@ while(numTries < maxTries)
 	
 	self interpret: progStr.
 	self assert: ((interpreter environment at: 'guess') between: 1.4141 and: 1.41432) equals: true.
-	Transcript show: (interpreter environment at: 'guess').	
+]
+
+{ #category : #tests }
+JbInterpreterTest >> testNewtonsSquareRootProgramStr [
+
+| progStr |
+progStr := JbSamplePrograms newtonsSquareRoot.
+self interpret: progStr.
+self assert: ((interpreter environment at: 'guess') between: 1.4141 and: 1.41432) equals: true.
 ]
 
 { #category : #running }

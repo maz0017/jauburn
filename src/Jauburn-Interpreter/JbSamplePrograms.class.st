@@ -10,16 +10,24 @@ Class {
 { #category : #'as yet unclassified' }
 JbSamplePrograms class >> newtonsSquareRoot [
 
-	Transcript show: 4.
+	"self run: #noFunctions"
 
-"	self interpret: 'newtonsSquareRoot(4);'."
-"	self assert: (interpreter environment at: 'z') equals: false."
-]
+^'var guess = 1;
+var sqRootOf = abs(2);
+var numTries = 0;
+var maxTries = 4;
+var quotient = 0;
+var average = 0;
 
-{ #category : #'as yet unclassified' }
-JbSamplePrograms class >> newtonsSquareRoot: aNumber [
-
-	Transcript show: aNumber.
+while(numTries < maxTries)
+{ 
+	quotient = sqRootOf / guess;
+	average = (quotient + guess) / 2;	
+	guess = average;
+	
+	numTries = numTries + 1;
+}
+'
 ]
 
 { #category : #'sample programs' }
